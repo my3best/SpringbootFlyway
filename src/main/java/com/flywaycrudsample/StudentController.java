@@ -20,7 +20,7 @@ private StudentRepository studentRepository;
 public List<Student> getStudents(){
 	return studentRepository.findAll();
 }
-@RequestMapping(value="/student",method=RequestMethod.GET)
+@RequestMapping(value="/student/{id}",method=RequestMethod.GET)
 public Student getStudent(@PathVariable Integer id)
 {
 	return studentRepository.findOne(id);
@@ -38,7 +38,7 @@ public Student updateStudent(@PathVariable Integer id,@RequestBody Student stude
 	return studentRepository.save(student);
 	
 }
-@RequestMapping(value="/student",method=RequestMethod.DELETE)
+@RequestMapping(value="/student/{id}",method=RequestMethod.DELETE)
 public  void deleteStudent(@PathVariable Integer id)
 {
 	Student existingStudent=studentRepository.findOne(id);
